@@ -72,13 +72,14 @@ $ git checkout -- file.txt         丢弃工作区的的修改/恢复（先回�
 $ git clone https://github.com/zmquan/test.git
 $ git pull
 $ git push origin master
-
- 
+$ git push --set-upstaeam origin name 
 
 总结创建与合并分支命令如下：
-$ git branch                      查看分支
+$ git branch                      查看本地分支
+$ git branch -a                   查看远程分支
 $ git branch name                 创建分支
 $ git checkout name               切换分支
 $ git checkout –b name            创建+切换分支
 $ git merge name                  合并某分支到当前分支
-$ git branch –d name              删除分支
+$ git branch –d name              删除本地分支
+$ git push origin -–delete name   删除远程分支
