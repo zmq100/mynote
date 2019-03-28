@@ -54,7 +54,7 @@ ONBOOT=yes
 
 BOOTPROTO=static
 
-BRIDGE=`br0`
+BRIDGE=br0
 
 HWADDR=00:0c:29:ca:29:32
 
@@ -66,9 +66,9 @@ NM_CONTROLLED=yes
 
 [root@localhost network-scripts]# vi ifcfg-br0
 
-DEVICE=`br0`
+DEVICE=br0
 
-TYPE=`Bridge`
+TYPE=Bridge
 
 ONBOOT=yes
 
