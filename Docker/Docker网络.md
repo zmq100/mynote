@@ -84,7 +84,10 @@ DNS=8.8.8.8
 
 ```
 
-```bash 
+### Docker指定net为none，通过pipework把桥接网卡br0分配IP地址给docker
+
+```bash
+
 [root@localhost network-scripts]# yum install -y git
 
 [root@localhost network-scripts]# git clone https://github.com/jpetazzo/pipework
@@ -93,6 +96,7 @@ DNS=8.8.8.8
 
 [root@localhost network-scripts]# docker run -itd --net=none --name=ff centos-6-x86 bash
 
-[root@localhost network-scripts]# pipework br0 fl 192.168.216.135/24
+[root@localhost network-scripts]# pipework br0 fl 192.168.80.20/24
+
 
 ```
