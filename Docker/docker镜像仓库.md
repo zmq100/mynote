@@ -33,19 +33,28 @@
 
 # 仓库私有：
 
+### 服务端设置
 	# docker run -d -v /opt/registry:/var/lib/registry -p 5000:5000 --restart=always registry
 
 	# vim /etc/docker/daemon.json
 	{
-    	"insecure-registries": ["10.10.10.11:5000"]
+    	"insecure-registries": ["192.168.80.10:5000"]
 	}
+
+	# systemctl restart docker
+
+### 把镜像推进仓库
+
+	# docker tag mariadb 192.168.80.10:5000/mariadb
+
+	# docker push 192.168.80.10:5000/mariadb
 
 ### 客户机设置：
 
 	# vim /etc/sysconfig/docker
-		--insecure-registry 10.10.10.11:5000    # 增加
+		--insecure-registry 192.168.80.10:5000    # 增加
 
-	# curl -XGET http://10.10.10.11:5000/v2/_catalog    查看已有镜像
+	# curl -XGET http://192.168.80.10:5000/v2/_catalog    #查看已有镜像
 
 ----
 
