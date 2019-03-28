@@ -34,7 +34,6 @@
 	docker start/stop	
 
 
-
 > 查看
 
 	docker ps --no-trunc	
@@ -67,6 +66,14 @@
 > 登入容器的bash
 
 	docker exec -it 容器名 /bin/bash  
+
+> 容器挂载目录
+
+选项： 
+
+	-v   [host-dir]:[container-dir]:[rw|ro]
+	--volumes-from=””
+
 
 ## 初步体验 Docker - WordPress
 
