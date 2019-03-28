@@ -94,9 +94,9 @@ DNS=8.8.8.8
 
 [root@localhost network-scripts]# cp pipework/pipework /usr/local/bin/
 
-[root@localhost network-scripts]# docker run -itd --net=none --name=ff centos-6-x86 bash
+[root@localhost network-scripts]# docker run -itd --net=none --name defnet centos bash
 
-[root@localhost network-scripts]# pipework br0 fl 192.168.80.20/24
+[root@localhost network-scripts]# pipework br0 defnet 192.168.80.20/24@192.168.80.2
 
 
 ```
