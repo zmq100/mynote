@@ -163,7 +163,7 @@ ONBUILD 指定的命令在构建镜像时并不执行，而是在它的子镜像
 
 ```Dockerfile
 FROM hub.c.163.com/public/centos:6.7
-MAINTAINER wangyang@itxdl.cn
+MAINTAINER zmq@zmq100.cn
 
 ADD ./apache-tomcat-7.0.42.tar.gz /root
 ADD ./jdk-7u25-linux-x64.tar.gz /root
