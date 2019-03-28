@@ -47,7 +47,7 @@
 
 	ENTRYPOINT ls -l 
 	
-- 该指令的使用分为两种情况，一种是独自使用，另一种和CMD指令配合使用。当独自使用时，如果你还使用了CMD命令且CMD是一个完整的可执行的命令，那么CMD指令和ENTRYPOINT会互相覆盖只有最后一个CMD或者ENTRYPOINT有效
+该指令的使用分为两种情况，一种是独自使用，另一种和CMD指令配合使用。当独自使用时，如果你还使用了CMD命令且CMD是一个完整的可执行的命令，那么CMD指令和ENTRYPOINT会互相覆盖只有最后一个CMD或者ENTRYPOINT有效
 
 
 CMD指令将不会被执行，只有ENTRYPOINT指令被执行
@@ -55,11 +55,12 @@ CMD指令将不会被执行，只有ENTRYPOINT指令被执行
 	CMD echo “Hello, World!” 
 	ENTRYPOINT ls -l  
 	 
-	
 另一种用法和CMD指令配合使用来指定ENTRYPOINT的默认参数，这时CMD指令不是一个完整的可执行命令，仅仅是参数部分；ENTRYPOINT指令只能使用JSON方式指定执行命令，而不能指定参数
 
-	FROM ubuntu  
-	CMD ["-l"]  
+	FROM ubuntu 
+ 
+	CMD ["-l"] 
+ 
 	ENTRYPOINT ["/usr/bin/ls"]  
 	
 ## 6、USER（设置container容器的用户）
@@ -78,23 +79,23 @@ CMD指令将不会被执行，只有ENTRYPOINT指令被执行
 > example
 
 
-	映射一个端口 
+映射一个端口 
  
 	EXPOSE 22
 
-	相应的运行容器使用的命令 
+相应的运行容器使用的命令 
  
 	docker run -p port1 image  
   
-	映射多个端口  
+映射多个端口  
 
 	EXPOSE port1 port2 port3  
 
-	相应的运行容器使用的命令  
+相应的运行容器使用的命令  
 
 	docker run -p port1 -p port2 -p port3 image 
  
-	还可以指定需要映射到宿主机器上的某个端口号  
+还可以指定需要映射到宿主机器上的某个端口号  
 
 	docker run -p host_port1:port1 -p host_port2:port2 -p host_port3:port3 image  
 
@@ -105,8 +106,9 @@ CMD指令将不会被执行，只有ENTRYPOINT指令被执行
 > example
 
 
-	设置了后，后续的RUN命令都可以使用，container启动后，可以通过docker inspect查看这个环境变量，也可以通过在docker run --env key=value时设置或修改环境变量。假如你安装了JAVA程序，需要设置JAVA_HOME，那么可以在Dockerfile中这样写：
-	ENV JAVA_HOME /path/to/java/dirent
+ - 设置了后，后续的RUN命令都可以使用，container启动后，可以通过docker inspect查看这个环境变量，也可以通过在docker run --env key=value时设置或修改环境变量。假如你安装了JAVA程序，需要设置JAVA_HOME，那么可以在Dockerfile中这样写：
+
+		ENV JAVA_HOME /path/to/java/dirent
 	
 
 	
@@ -154,6 +156,10 @@ ONBUILD 指定的命令在构建镜像时并不执行，而是在它的子镜像
 
 	ONBUILD ADD . /app/src
 	ONBUILD RUN /usr/local/bin/python-build --dir /app/src
+
+### 例子：
+
+新建一个tomcat的web容器
 
 ```Dockerfile
 FROM hub.c.163.com/public/centos:6.7
